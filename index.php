@@ -39,9 +39,103 @@
     </form> -->
 
     <?php
+    // array_reverse. pass by value.
+    $arr = [1, 2, 3, 4, 5, 6];
+
+    /**
+     *
+     */
+    // Function reverse_array(array $arr): array {
+    //   $i = 0;
+    //   $j = count($arr) - 1;
+    //   while ($i < $j) {
+    //     $temp = $arr[$i];
+    //     $arr[$i] = $arr[$j];
+    //     $arr[$j] = $temp;
+    //     $i++;
+    //     $j--;
+    //   }
+    //   return $arr;
+    // }.
+    // $reversed = reverse_array($arr);
+
+    /**
+     * Print_r($reversed);  // array_reverse. pass by ref.
+     */
+    function reverse_array(&$arr) {
+      $i = 0;
+      $j = count($arr) - 1;
+      while ($i < $j) {
+        $temp = $arr[$i];
+        $arr[$i] = $arr[$j];
+        $arr[$j] = $temp;
+        $i++;
+        $j--;
+      }
+    }
+
+    // reverse_array($arr);
+    // print_r($arr);
+
+    /**
+     * Two sum / Target sum.
+     */
+    // Function two_sum(array $nums, int $target) {
+    //   $map = [];.
+    // foreach ($nums as $i => $num) {
+    //     $need = $target - $num;
+    //     if (isset($map[$need])) {
+    //       return [$map[$need], $i];
+    //     }
+    //     $map[$need] = $i;
+    //   }
+    //   return [];
+    // }.
+    // $res = two_sum([2, 5, 4, 1, 8], 5);
+    // print_r($res);
+
+    /**
+     *
+     */
+    // Function two_sum(array $nums, int $target) {
+    //   $map = [];.
+    // foreach ($nums as $i => $num) {
+    //     $complement = $target - $num;
+    //     // Check if the current number is what a previous number needed.
+    //     if (isset($map[$num])) {
+    //       return [$map[$num], $i];
+    //     }
+    //     // Store the 'needed' value as the key.
+    //     $map[$complement] = $i;
+    //   }
+    //   return [];
+    // }.
+
+    /**
+     * .
+     */
+    function two_sum(array $nums, int $target): ?array {
+      $map = [];
+      foreach ($nums as $idx => $num) {
+        $diff = $target - $num;
+        if (isset($map[$diff])) {
+          return [$map[$diff], $idx];
+        }
+        $map[$num] = $idx;
+      }
+      return NULL;
+    }
+
+    $result = two_sum([2, 5, 4, 1, 8], 5);
+
+    echo "<pre>";
+    print_r($result);
+    echo "</pre>";
+
+
     // $arr = [1, 2, 2, 5, 4, 1];
     // print_r(array_unique($arr));
-    $arr1 = [1, 2, 2, 5, 4, 1];
+    // $arr1 = [1, 2, 2, 5, 4, 1];
     // $arr1 = ['cat', 'dog', 'horse'];
     // $arr2 = ['kook', 'cat', 'horse'];
     // $data = ['salam' => 25, 'kalam' => 30, 'joo' => 40];
@@ -50,15 +144,15 @@
     // }
     // else {
     //   echo 'no';
-
+    // array_filter.
     /**
      * }.
      */
-    function find_val($item) {
-      return $item < 2;
-    }
-
-    print_r(array_filter($arr1, 'find_val'))
+    // Function find_val($item) {
+    //   return $item < 2;
+    // }.
+    // print_r(array_filter($arr1, 'find_val'))
+    // in_array.
     /**
     *
     */
@@ -90,7 +184,7 @@
     //   else {
     //     return "different";
     //   }.
-
+    // array_push, count, array_slice, isset,.
     /**
      * }.
      *
